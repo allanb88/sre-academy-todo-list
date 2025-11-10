@@ -1,0 +1,26 @@
+4. Métricas que podrás monitorear
+
+Con esta configuración, tendrás las siguientes métricas:
+Métricas personalizadas:
+
+    goals_operations_total: Operaciones de goals (fetch, create, delete)
+
+    validation_errors_total: Errores de validación (empty_text, only_numbers, max_length_exceeded)
+
+    http_request_duration_ms: Duración de las peticiones HTTP
+
+Métricas por defecto de Node.js:
+
+    Uso de CPU y memoria
+
+    Event loop lag
+
+    Garbage collection
+
+5. Acceso a los dashboards
+
+    Grafana: http://localhost:30091 (usuario: admin, contraseña: admin123)
+
+    Prometheus: http://localhost:30090
+
+    Jaeger: http://localhost:30092 (para tracing)
