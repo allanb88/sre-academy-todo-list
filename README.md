@@ -12,6 +12,13 @@ This project showcases the orchestration of a full stack composed of:
 - **Alerting:** Email alerts via Gmail SMTP
 - **Orchestration:** Single multi-service deployment running on Minikube
 
+### Installation
+
+-We need to create a sre namespace as it is used by the frontend microservice to connect between the backend microservice.
+-create the sre ns = kubectl create ns sre
+-Go to the main project and run the apply = kubectl apply -f deployment.yaml -n sre
+-Check the webUI on = http:\\$minikubeip:30080
+
 ---
 
 ## ✅ Overview
@@ -83,7 +90,7 @@ This demonstrates end-to-end alerting for SRE workflows.
 
 ### Requirements
 
-- Docker / Podman
+- Docker
 - Minikube
 - kubectl
 - Prometheus operator (optional)
@@ -110,11 +117,6 @@ This creates:
 
     Prometheus deployment & service
 
-You can then forward ports for local access:
-
-kubectl port-forward svc/frontend 3000:3000
-kubectl port-forward svc/backend 8080:8080
-kubectl port-forward svc/prometheus 9090:9090
 
 🧪 Features Demonstrated
 
@@ -147,12 +149,6 @@ sre-todo-list/
 │   ├── src/
 │   └── Dockerfile
 │
-├── manifests/
-│   ├── mongodb.yaml
-│   ├── backend.yaml
-│   ├── frontend.yaml
-│   ├── opentelemetry-collector.yaml
-│   └── prometheus.yaml
 │
 └── deployment.yaml   <--- master orchestrator
 
@@ -165,6 +161,9 @@ OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
 SMTP_USER="your-gmail"
 SMTP_PASS="your-gmail-app-password"
 ALERT_EMAIL="allanbs.88@gmail.com"
+
+
+
 
 📜 License
 
